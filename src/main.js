@@ -1,7 +1,11 @@
 import Vue from 'vue'
 import App from './App.vue'
+import Vuebar from 'vuebar';
+
+require('./assets/style.scss')
 
 Vue.config.productionTip = false
+Vue.use(Vuebar);
 
 new Vue({
   render: h => h(App),

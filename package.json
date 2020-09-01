@@ -10,10 +10,12 @@
   "dependencies": {
     "cocktail-api-facade": "^1.0.0",
     "core-js": "^3.6.5",
+    "lodash": "^4.17.20",
     "node-sass": "^4.14.1",
     "sass": "^1.26.10",
     "sass-loader": "^10.0.1",
-    "vue": "^2.6.11"
+    "vue": "^2.6.11",
+    "vuebar": "^0.0.20"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
