@@ -2539,9 +2539,9 @@ coa@^2.0.2:
     q "^1.1.2"
 
 cocktail-api-facade@^1.0.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/cocktail-api-facade/-/cocktail-api-facade-1.1.0.tgz#a43bbaac649c918790ae1712f5efb743c8d6b54d"
-  integrity sha512-gaYCWILVgB5E0cGbpSHIIDzlUCGVeM/7ygb+gs9MgLNWOPlSG1WZYr4auPAWV/OVAWFnZUA9fCsb3Kao3Qi8HQ==
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/cocktail-api-facade/-/cocktail-api-facade-1.2.0.tgz#163820171972ee9b930c7c1c7409a92fbf2365ec"
+  integrity sha512-OFEUOP6B/xdg5hAdA3hZIo8LHhrRZlRtxmp933KzpFe34NsfbyFLXQFE+6CAEI38wuldAeZ5PQ6ZipIpnN1EOA==
   dependencies:
     babel "^6.23.0"
     isomorphic-unfetch "^3.0.0"
