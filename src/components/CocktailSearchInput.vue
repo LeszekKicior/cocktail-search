@@ -1,5 +1,5 @@
 <template>
-    <input class="cs-input" @input="debounceInput">
+    <input class="cs-input alt-font" @input="debounceInput">
 </template>
 
 <script>

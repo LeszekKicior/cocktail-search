@@ -3,10 +3,11 @@
     <template v-if="cocktail">
       <div class="cs-display-header">
         <img :src="cocktail.thumbnail" alt="">
-        <div class="title">{{ cocktail.name }}</div>
+        <div class="name alt-font">{{ cocktail.name }}</div>
       </div>
       <div class="cs-display-content">
         <div class="ingredients">
+          <span class="title">Ingredients</span>
           <div class="ingredient"
                v-for="(ingredient, index) in cocktail.ingredients"
                :key="index">
@@ -14,6 +15,7 @@
           </div>
         </div>
         <div class="instructions">
+          <span class="title">Instructions</span>
           {{cocktail.instructions}}
         </div>
       </div>
@@ -43,6 +45,9 @@ export default {
 $imageSize: 300px;
 .cs-display {
   padding: 0 30px;
+  font-size: 18px;
+  line-height: 1.3em;
+
 
   .cs-display-header {
     display: flex;
@@ -53,11 +58,11 @@ $imageSize: 300px;
       width: $imageSize;
       height: $imageSize;
       border-radius: 16px;
-      margin-right: 40px;
+      margin-right: 30px;
     }
 
-    .title{
-      font-size: 24px;
+    .name{
+      font-size: 40px;
     }
   }
 
@@ -70,13 +75,21 @@ $imageSize: 300px;
     width: 300px;
     display: flex;
     flex-flow: column nowrap;
+    text-align: left;
+
     .ingredient{
       width: 100%;
-      text-align: left;
     }
   }
   .instructions{
     flex: 1;
+    text-align: justify;
+  }
+  .title{
+    margin-bottom: 10px;
+    color: #D08A8A;
+    font-weight: bold;
+    display: block;
   }
 }
 </style>

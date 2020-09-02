@@ -41,7 +41,8 @@ export default {
       background-color: #6F2C2C;
     }
     &:hover{
-      box-shadow: 0 0 4px 4px rgba(0,0,0,0.2)
+      box-shadow: 0 0 4px 4px rgba(0,0,0,0.2);
+      background-color: #923A3A
     }
     img{
       $size: 60px;

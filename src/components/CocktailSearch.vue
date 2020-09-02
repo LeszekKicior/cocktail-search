@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <div class="title alt-font">CocktailSearch</div>
     <div class="cocktail-search">
       <div v-bar class="search">
         <div>
@@ -18,7 +19,9 @@
         </div>
       </div>
       <div class="display">
-        <CocktailSearchDisplay :cocktail="selectedCocktail"/>
+        <transition name="fade" mode="out-in" duration="150">
+        <CocktailSearchDisplay :cocktail="selectedCocktail" :key="selectedCocktail.id"/>
+        </transition>
       </div>
     </div>
   </div>
@@ -63,6 +66,12 @@ export default {
   height: 100vh;
   width: 100%;
   background-color: #222429;
+  padding-top: 30px;
+  box-sizing: border-box;
+  .title{
+    font-size: 48px;
+    margin-bottom: 30px;
+  }
 }
 
 .cocktail-search {
@@ -88,7 +97,6 @@ export default {
   .display {
     width: 70%;
     height: 100%;
-    //background-color: rgba(255, 255, 255, 0.1);
   }
 
   .input {

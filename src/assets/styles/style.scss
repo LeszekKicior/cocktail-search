@@ -1,4 +1,17 @@
 @import 'vbar';
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=Montserrat&display=swap');
+
+#app {
+  font-family: 'Montserrat', Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: white;
+}
+
+.alt-font{
+  font-family: 'Abel', Helvetica, sans-serif;
+}
 
 .fade-enter-active, .fade-leave-active {
   transition: opacity .5s;
