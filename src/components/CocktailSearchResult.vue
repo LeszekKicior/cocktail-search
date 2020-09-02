@@ -25,10 +25,9 @@ export default {
 <style lang="scss" scoped>
   .result{
     cursor: pointer;
-    padding: 5px 15px;
-    background-color: #222429;
+    padding: 5px;
+    background-color: #1d1e22;
     text-align: left;
-    border: 1px solid #6F2C2C;
     border-radius: 4px;
     margin-bottom: 4px;
     display: flex;
@@ -37,11 +36,12 @@ export default {
     margin-right: 15px;
     transition: 100ms ease all;
     font-weight: bold;
+    box-shadow: inset 0 0 8px 0 rgba(0,0,0,0.2);
+
     &.selected{
       background-color: #6F2C2C;
     }
     &:hover{
-      box-shadow: 0 0 4px 4px rgba(0,0,0,0.2);
       background-color: #923A3A
     }
     img{

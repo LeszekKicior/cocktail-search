@@ -20,7 +20,7 @@
         </div>
       </div>
     </template>
-    <span v-else>Select a cocktail or ingredient from the search box.</span>
+    <span v-else>Select a cocktail using the search box. Try 'Martini', or 'Rum'!</span>
   </div>
 </template>
 

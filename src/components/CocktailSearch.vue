@@ -4,7 +4,7 @@
     <div class="cocktail-search">
       <div v-bar class="search">
         <div>
-          <CocktailSearchInput class="input" @input="search"></CocktailSearchInput>
+          <CocktailSearchInput class="input" @input="search" placeholder="Search..."></CocktailSearchInput>
           <transition-group name="fade"
           >
             <CocktailSearchResult v-for="result in searchResults"
@@ -14,7 +14,7 @@
                                   @click.native="showCocktail(result)"/>
           </transition-group>
           <transition name="fade">
-            <div v-if="!searchResults.length" class="no-results">No cocktails or ingredients found.</div>
+            <div v-if="!searchResults.length && searchUsed" class="no-results">No cocktails or ingredients found.</div>
           </transition>
         </div>
       </div>
@@ -24,6 +24,7 @@
         </transition>
       </div>
     </div>
+    <div class="note">Leszek Kicior 2020</div>
   </div>
 </template>
 
@@ -40,6 +41,7 @@ export default {
     return {
       searchResults: [],
       loading: false,
+      searchUsed: false,
       selectedCocktail: ''
     }
   },
@@ -47,10 +49,9 @@ export default {
     search(string) {
       this.searchResults = []
       if (string) {
-        this.loading = true
         cocktailApi.searchCocktail(string).then(results => {
           this.searchResults = results
-          this.loading = false
+          this.searchUsed = true
         })
       }
     },
@@ -65,7 +66,7 @@ export default {
 .container {
   height: 100vh;
   width: 100%;
-  background-color: #222429;
+  background-color: #1C1D21;
   padding-top: 30px;
   box-sizing: border-box;
   .title{
@@ -77,7 +78,9 @@ export default {
 .cocktail-search {
   max-width: 1200px;
   height: 80%;
-  border: 2px dashed #6F2C2C;
+  box-shadow: 0 4px 16px 4px #000000ab;
+  border-radius: 12px;
+  background-color: #222429;
   margin: auto;
   padding: 30px;
   display: flex;
@@ -108,5 +111,13 @@ export default {
     margin-right: 15px;
     height: 72px
   }
+}
+.note{
+  margin-left: auto;
+  margin-right: 30px;
+  margin-top: 20px;
+  width: fit-content;
+  color: rgba(255,255,255,0.2);
+  font-size: 14px;
 }
 </style>
