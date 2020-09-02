@@ -1,5 +1,5 @@
 <template>
-    <input class="cs-input alt-font" @input="debounceInput" :placeholder="placeholder">
+  <input :placeholder="placeholder" class="cs-input alt-font" @input="debounceInput">
 </template>
 
 <script>
@@ -36,10 +36,11 @@ export default {
   outline: none;
   font-size: 30px;
   border: none;
-  box-shadow: inset 0 0 8px 0 rgba(0,0,0,.8);
+  box-shadow: inset 0 0 8px 0 rgba(0, 0, 0, .8);
   transition: 150ms ease all;
-  &:focus{
-    box-shadow: inset 0 0 10px 2px rgba(0,0,0,.8);
+
+  &:focus {
+    box-shadow: inset 0 0 10px 2px rgba(0, 0, 0, .8);
   }
 }
 </style>

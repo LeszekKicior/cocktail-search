@@ -4,7 +4,7 @@
     <div class="cocktail-search">
       <div v-bar class="search">
         <div>
-          <CocktailSearchInput class="input" @input="search" placeholder="Search..."></CocktailSearchInput>
+          <CocktailSearchInput class="input" placeholder="Search..." @input="search"></CocktailSearchInput>
           <transition-group name="fade"
           >
             <CocktailSearchResult v-for="result in searchResults"
@@ -19,8 +19,8 @@
         </div>
       </div>
       <div class="display">
-        <transition name="fade" mode="out-in" duration="150">
-        <CocktailSearchDisplay :cocktail="selectedCocktail" :key="selectedCocktail.id"/>
+        <transition duration="150" mode="out-in" name="fade">
+          <CocktailSearchDisplay :key="selectedCocktail.id" :cocktail="selectedCocktail"/>
         </transition>
       </div>
     </div>
@@ -69,7 +69,8 @@ export default {
   background-color: #1C1D21;
   padding-top: 30px;
   box-sizing: border-box;
-  .title{
+
+  .title {
     font-size: 48px;
     margin-bottom: 30px;
   }
@@ -112,12 +113,13 @@ export default {
     height: 72px
   }
 }
-.note{
+
+.note {
   margin-left: auto;
   margin-right: 30px;
   margin-top: 20px;
   width: fit-content;
-  color: rgba(255,255,255,0.2);
+  color: rgba(255, 255, 255, 0.2);
   font-size: 14px;
 }
 </style>

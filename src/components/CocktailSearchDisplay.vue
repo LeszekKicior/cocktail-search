@@ -2,22 +2,22 @@
   <div class="cs-display">
     <template v-if="cocktail">
       <div class="cs-display-header">
-        <img :src="cocktail.thumbnail" alt="" v-if="cocktail.thumbnail">
-        <img src="../assets/glass.svg" class="contain" alt="" v-else>
+        <img v-if="cocktail.thumbnail" :src="cocktail.thumbnail" alt="">
+        <img v-else alt="" class="contain" src="../assets/glass.svg">
         <div class="name alt-font">{{ cocktail.name }}</div>
       </div>
       <div class="cs-display-content">
         <div class="ingredients">
           <span class="title">Ingredients</span>
-          <div class="ingredient"
-               v-for="(ingredient, index) in cocktail.ingredients"
-               :key="index">
-            <span class="ingredient-name">{{ingredient.name}}</span> ({{ingredient.measure|stripWhitespace}})
+          <div v-for="(ingredient, index) in cocktail.ingredients"
+               :key="index"
+               class="ingredient">
+            <span class="ingredient-name">{{ ingredient.name }}</span> ({{ ingredient.measure|stripWhitespace }})
           </div>
         </div>
         <div class="instructions">
           <span class="title">Instructions</span>
-          {{cocktail.instructions}}
+          {{ cocktail.instructions }}
         </div>
       </div>
     </template>
@@ -31,7 +31,8 @@ export default {
   props: {
     cocktail: {
       type: Object,
-      default: () => {}
+      default: () => {
+      }
     }
   },
   filters: {
@@ -60,36 +61,40 @@ $imageSize: 300px;
       height: $imageSize;
       border-radius: 16px;
       margin-right: 30px;
-      &.contain{
+
+      &.contain {
         object-fit: contain;
       }
     }
 
-    .name{
+    .name {
       font-size: 40px;
     }
   }
 
-  .cs-display-content{
+  .cs-display-content {
     display: flex;
     flex-flow: row nowrap;
     padding: 30px;
   }
-  .ingredients{
+
+  .ingredients {
     width: 300px;
     display: flex;
     flex-flow: column nowrap;
     text-align: left;
 
-    .ingredient{
+    .ingredient {
       width: 100%;
     }
   }
-  .instructions{
+
+  .instructions {
     flex: 1;
     text-align: justify;
   }
-  .title{
+
+  .title {
     margin-bottom: 10px;
     color: #D08A8A;
     font-weight: bold;
