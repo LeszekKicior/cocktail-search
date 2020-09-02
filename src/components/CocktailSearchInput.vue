@@ -23,9 +23,9 @@ export default {
 <style lang="scss" scoped>
 .cs-input {
   padding: 5px 15px;
-  background-color: #a78356;
+  background-color: #6F2C2C;
+  color: white;
   text-align: left;
-  border: 1px solid #a78356;
   border-radius: 4px;
   outline: none;
   font-size: 30px;

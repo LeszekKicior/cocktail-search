@@ -9,7 +9,7 @@
             <CocktailSearchResult v-for="result in searchResults"
                                   :key="result.id"
                                   :result="result"
-                                  :selected="result.id === displayCocktail.id"
+                                  :selected="result.id === selectedCocktail.id"
                                   @click.native="showCocktail(result)"/>
           </transition-group>
           <transition name="fade">
@@ -18,7 +18,7 @@
         </div>
       </div>
       <div class="display">
-        <CocktailSearchDisplay :cocktail="displayCocktail"/>
+        <CocktailSearchDisplay :cocktail="selectedCocktail"/>
       </div>
     </div>
   </div>
@@ -37,7 +37,7 @@ export default {
     return {
       searchResults: [],
       loading: false,
-      displayCocktail: ''
+      selectedCocktail: ''
     }
   },
   methods: {
@@ -52,7 +52,7 @@ export default {
       }
     },
     showCocktail(cocktail) {
-      this.displayCocktail = cocktail
+      this.selectedCocktail = cocktail
     }
   }
 }
@@ -62,13 +62,13 @@ export default {
 .container {
   height: 100vh;
   width: 100%;
-  background-color: #3a251f;
+  background-color: #222429;
 }
 
 .cocktail-search {
   max-width: 1200px;
   height: 80%;
-  border: 2px dashed #a78356;
+  border: 2px dashed #6F2C2C;
   margin: auto;
   padding: 30px;
   display: flex;
@@ -88,7 +88,7 @@ export default {
   .display {
     width: 70%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.1);
+    //background-color: rgba(255, 255, 255, 0.1);
   }
 
   .input {
