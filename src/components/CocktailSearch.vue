@@ -4,12 +4,21 @@
       <div v-bar class="search">
         <div>
           <CocktailSearchInput class="input" @input="search"></CocktailSearchInput>
-          <CocktailSearchResult v-for="result in searchResults" :key="result.id" :result="result"
-                                @onclick="showCocktail(result)"/>
-          <div v-if="!searchResults.length" class="no-results">No cocktails or ingredients found.</div>
+          <transition-group name="fade"
+          >
+            <CocktailSearchResult v-for="result in searchResults"
+                                  :key="result.id"
+                                  :result="result"
+                                  :selected="result.id === displayCocktail.id"
+                                  @click.native="showCocktail(result)"/>
+          </transition-group>
+          <transition name="fade">
+            <div v-if="!searchResults.length" class="no-results">No cocktails or ingredients found.</div>
+          </transition>
         </div>
       </div>
       <div class="display">
+        <CocktailSearchDisplay :cocktail="displayCocktail"/>
       </div>
     </div>
   </div>
@@ -19,10 +28,11 @@
 import cocktailApi from 'cocktail-api-facade';
 import CocktailSearchResult from "@/components/CocktailSearchResult";
 import CocktailSearchInput from "@/components/CocktailSearchInput";
+import CocktailSearchDisplay from "@/components/CocktailSearchDisplay";
 
 export default {
   name: "CocktailSearch",
-  components: {CocktailSearchInput, CocktailSearchResult},
+  components: {CocktailSearchDisplay, CocktailSearchInput, CocktailSearchResult},
   data() {
     return {
       searchResults: [],
@@ -42,8 +52,7 @@ export default {
       }
     },
     showCocktail(cocktail) {
-      alert(cocktail.id)
-      console.log(cocktail)
+      this.displayCocktail = cocktail
     }
   }
 }
@@ -57,33 +66,37 @@ export default {
 }
 
 .cocktail-search {
-  $partWidth: 30%;
   max-width: 1200px;
   height: 80%;
   border: 2px dashed #a78356;
   margin: auto;
   padding: 30px;
+  display: flex;
+  flex-flow: row nowrap;
 
-  .no-results{
+  .no-results {
     margin-right: 15px;
   }
 
   .search {
-    width: $partWidth;
+    width: 30%;
     max-width: 300px;
     height: 100%;
     overflow-y: auto;
   }
 
   .display {
-    width: calc(100% - #{$partWidth})
+    width: 70%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
   }
 
   .input {
+    box-sizing: border-box;
     position: sticky;
     top: 0;
     margin-bottom: 15px;
-    width: calc(100% - 47px);
+    width: calc(100% - 15px);
     margin-right: 15px;
     height: 72px
   }
