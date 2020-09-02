@@ -86,6 +86,11 @@ $imageSize: 300px;
 
     .ingredient {
       width: 100%;
+      &::before{
+        content: "•";
+        color: #D08A8A;
+        margin-right: 8px;
+      }
     }
   }
 
