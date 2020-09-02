@@ -2,7 +2,8 @@
   <div class="cs-display">
     <template v-if="cocktail">
       <div class="cs-display-header">
-        <img :src="cocktail.thumbnail" alt="">
+        <img :src="cocktail.thumbnail" alt="" v-if="cocktail.thumbnail">
+        <img src="../assets/glass.svg" class="contain" alt="" v-else>
         <div class="name alt-font">{{ cocktail.name }}</div>
       </div>
       <div class="cs-display-content">
@@ -59,6 +60,9 @@ $imageSize: 300px;
       height: $imageSize;
       border-radius: 16px;
       margin-right: 30px;
+      &.contain{
+        object-fit: contain;
+      }
     }
 
     .name{
