@@ -2,7 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import Vuebar from 'vuebar';
 
-require('./assets/style.scss')
+require('./assets/styles/style.scss')
 
 Vue.config.productionTip = false
 Vue.use(Vuebar);
